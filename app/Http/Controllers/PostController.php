@@ -24,4 +24,10 @@ class PostController extends Controller
         //Kirim data post ke view
         return view('posts.register');
     }
+
+    public function welcome(): View
+    {
+        //Kirim data post ke view
+        return view('welcome');
+    }
 }
