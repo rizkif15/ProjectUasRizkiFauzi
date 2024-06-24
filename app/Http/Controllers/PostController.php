@@ -10,7 +10,7 @@ class PostController extends Controller
     public function landingPage(): View
     {
         //Kirim data post ke view
-        return view('posts.landingPage');
+        return view('layouts.landingPage');
     }
 
     public function login(): View
@@ -29,5 +29,23 @@ class PostController extends Controller
     {
         //Kirim data post ke view
         return view('welcome');
+    }
+
+    public function home(): View
+    {
+        //Kirim data post ke view
+        return view('layouts.home');
+    }
+
+    public function edit(): View
+    {
+        //Kirim data post ke view
+        return view('posts.edit');
+    }
+
+    public function show(): View
+    {
+        //Kirim data post ke view
+        return view('posts.show');
     }
 }
