@@ -12,7 +12,8 @@ Route::get('/posts/register', [PostController::class, 'register'])->name('posts.
 Route::get('welcome', [PostController::class, 'welcome'])->name('welcome');
 
 Route::get('/layouts/home', [PostController::class, 'home'])->name('layouts.home');
-Route::get('/posts/edit', [PostController::class, 'edit'])->name('layouts.edit');
-Route::get('/posts/show', [PostController::class, 'show'])->name('layouts.show');
+Route::get('/posts/show{code}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/add', [PostController::class, 'add'])->name('posts.add');
+Route::get('/posts/edit{code}', [PostController::class, 'edit'])->name('posts.edit');
 
 Route::resource('/posts', PostController::class);

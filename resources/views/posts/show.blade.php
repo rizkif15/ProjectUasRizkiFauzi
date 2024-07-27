@@ -5,11 +5,15 @@
 @section('header-title', 'View Post')
 
 @section('content')
-    <div class="card border-0 shadow-sm rounded">
-        <div class="card-body">
-            <h5 class="card-title">Judul Post</h5>
-            <img src="{{ asset('images/254721151_utb_kotak.png') }}" class="img-fluid rounded mb-3" alt="Post Image" style="max-width: 100%;">
-            <p class="card-text">Konten Post</p>
+    <div class="card border-0 shadow-sm rounded" style="padding: 20px; background: black; color: white;">
+        <div class="card-body" >
+            @if($post->foto)
+                <img src="{{ asset('storage/' . $post->foto) }}" class="img-fluid rounded mb-3" alt="Post Image" style="max-width: 20%;">
+            @else
+                <p class="text-muted">No Image</p>
+            @endif
+            <h5 class="card-title">{{ $post->nama }}</h5>
+            <p class="card-text">{{ $post->email }}</p>
             <a href="{{route('layouts.home')}}" class="btn btn-primary">Kembali</a>
         </div>
     </div>
