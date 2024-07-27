@@ -7,32 +7,33 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View as FacadesView;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class PostController extends Controller
 {
-    public function landingPage(): View
-    {
-        //Kirim data post ke view
-        return view('layouts.landingPage');
-    }
+    // public function landingPage(): View
+    // {
+    //     //Kirim data post ke view
+    //     return view('layouts.landingPage');
+    // }
 
-    public function login(): View
-    {
-        //Kirim data post ke view
-        return view('posts.login');
-    }
+    // public function login(): View
+    // {
+    //     //Kirim data post ke view
+    //     return view('posts.login');
+    // }
 
-    public function register(): View
-    {
-        //Kirim data post ke view
-        return view('posts.register');
-    }
+    // public function register(): View
+    // {
+    //     //Kirim data post ke view
+    //     return view('posts.register');
+    // }
 
-    public function welcome(): View
-    {
-        //Kirim data post ke view
-        return view('welcome');
-    }
+    // public function welcome(): View
+    // {
+    //     //Kirim data post ke view
+    //     return view('welcome');
+    // }
 
     public function home(): View
     {
@@ -61,6 +62,11 @@ class PostController extends Controller
     {
         //Kirim data post ke view
         return view('posts.add');
+    }
+
+    public function logout(){
+        auth()->logout();
+        return redirect()->route('layouts.landingPage');
     }
 
     public function store(Request $request){
@@ -121,6 +127,12 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('layouts.home')->with('success','Post deleted successfully');
+    }
+
+    public function generatePDF(){
+        $posts = Post::all();
+        $pdf = PDF::loadview('posts.pdf', compact('posts'));
+        return $pdf->download('posts.pdf');
     }
 
 }

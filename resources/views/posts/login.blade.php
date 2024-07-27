@@ -55,24 +55,43 @@
     <div class="login-container">
         <div class="login-box">
             <h2 class="login-title text-center">Login</h2>
-            <form action="{{route('layouts.home')}}">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
+                    @error('email')
+                        <span>{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+                    @error('password')
+                        <span>{{ $message }}</span>
+                    @enderror
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-chech-input" type="checkbox" {{ old('remember') ? 'checked' : '' }} name="remember" id="remember">
+                        <label class="form-check-label" for="remember">
+                            Remember Me
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    <br>
+                    <br>
+                    <p>Don't have an account? <a href="{{ route('profile.register') }}">Daftar</a></p>
+                </div>
             </form>
-            <div class="text-center mt-3">
-                <p>Don't have an account? <a href="{{route('posts.register')}}">Sign Up</a></p>
-            </div>
         </div>
     </div>
 
     <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
 </html>

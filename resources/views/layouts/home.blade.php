@@ -14,7 +14,8 @@
             <div class="container" style="padding: 20px;"> <!-- Tambahkan container dengan padding di sini -->
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 class="card-title" style="color: #FFFFFF;">Data Posts</h5>
-                    <a href="{{ route('posts.add', 1) }}" class="btn btn-outline-light">TAMBAH POST</a>
+                    <a href="{{ route('posts.add') }}" class="btn btn-outline-light">TAMBAH POST</a>
+                    <a href="{{ route('posts.pdf') }}" class="btn btn-outline-light">GENERATE PDF</a>
                 </div>
                 <table class="table table-dark table-hover">
                     <thead>

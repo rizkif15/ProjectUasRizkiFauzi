@@ -73,8 +73,8 @@
         <div>
             <h1 class="display-3">Selamat datang di Dataku</h1>
             <p class="lead">Platform pengelolaan data barang berbasis web.</p>
-            <a href="{{route('posts.login')}}" class="btn btn-primary btn-lg">Login</a>
-            <a href="{{route('posts.register')}}" class="btn btn-outline-light btn-lg">Sign Up</a>
+            <a href="{{route('profile.login')}}" class="btn btn-primary btn-lg">Login</a>
+            <a href="{{route('profile.register')}}" class="btn btn-outline-light btn-lg">Sign Up</a>
         </div>
     </div>
 

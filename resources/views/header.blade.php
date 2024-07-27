@@ -44,7 +44,11 @@
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                @if(isset($user))
+                <h3 class="text-primary">Hello {{ $user->name }}</h3>
+                @else
                 <h3 class="header-title">@yield('header-title')</h3>
+                @endif
             </div>
         </div>
     </div>
